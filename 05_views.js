@@ -52,15 +52,15 @@ const post_test = magpieViews.view_generator("post_test", {
   trials: 1,
   name: 'post_test',
   title: 'Additional information',
-  text: 'Answering the following questions is optional, but your answers will help us analyze our results.'
+  text: 'Answering the following questions is optional, but your answers will help us analyze our results.',
 
   // You can change much of what appears here, e.g., to present it in a different language, as follows:
   // buttonText: 'Weiter',
-  // age_question: 'Alter',
-  // gender_question: 'Geschlecht',
-  // gender_male: 'männlich',
-  // gender_female: 'weiblich',
-  // gender_other: 'divers',
+   age_question: 'Alter',
+   gender_question: 'Geschlecht',
+   gender_male: 'männlich',
+   gender_female: 'weiblich',
+   gender_other: 'divers',
   // edu_question: 'Höchster Bildungsabschluss',
   // edu_graduated_high_school: 'Abitur',
   // edu_graduated_college: 'Hochschulabschluss',
@@ -114,6 +114,48 @@ const forced_choice_2A = magpieViews.view_generator("forced_choice", {
   //     after_response_enabled: check_response
   // }
 });
+
+const sentence_choice_2B = sentence_customized({
+  name: "sentence_customized",
+  trials: 1,
+  data: [
+    {
+      question: "Which out of these topics do you care about the most?",
+      option1: 'Animal Products',
+      option2: 'Protesting',
+      option3: 'Vaccine against Covid-19',
+      option4: 'Abortion',
+      option5: 'Political Orientation'
+    }
+  ],
+  hook: {
+        after_response_enabled: check_response_cus
+    }
+
+});
+
+const rating_choice = topic_customized({
+  name: "rating_choice",
+  trials: 2,
+  data: [
+    {
+      question: "People should not buy or eat animal products",
+      optionLeft: 'Strongly Disagree',
+      optionRight: 'Strongly Agree',
+    },
+    {
+      question: "It is alright if political protesters use violence to enforce their demands",
+      optionLeft: 'Strongly Disagree',
+      optionRight: 'Strongly Agree',
+    }
+
+  ],
+
+});
+
+
+
+
 
 // There are many more templates available:
 // forced_choice, slider_rating, dropdown_choice, testbox_input, rating_scale, image_selection, sentence_choice,

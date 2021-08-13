@@ -31,7 +31,7 @@ const generateID = function(len) {
 
 
 
-/* Hooks  
+/* Hooks
 *
 *
 */
@@ -57,6 +57,29 @@ check_response = function(data, next) {
         } else {
             alert('Sorry, this answer is incorrect :( The correct answer was ' + data.correct);
         }
+        next();
+    })
+}
+
+
+check_response_cus = function(data, next) {
+    $('input[name=answer]').on('change', function(e) {
+        if (e.target.value === data.option1) {
+            //ruf new view auf
+        };
+        if (e.target.value === data.option2) {
+
+        };
+        if (e.target.value === data.option3) {
+
+        };
+        if (e.target.value === data.option4) {
+
+        };
+        if (e.target.value === data.option5) {
+
+        };
+
         next();
     })
 }

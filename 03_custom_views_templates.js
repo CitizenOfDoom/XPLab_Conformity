@@ -9,3 +9,83 @@
 // and has to call magpie.findNextView() eventually to proceed to the next view (or the next trial in this view),
 // if it is an trial view it also makes sense to call magpie.trial_data.push(trial_data) to save the trial information
 
+const sentence_customized = function (config){
+  const view = {
+    name: config.name,
+    CT: 0,
+    trials: config.trials,
+    render: function (CT, magpie) {
+      $('main').html(`<div class='magpie-view-answer-container'>
+               <p class='magpie-view-question'>${config.data[CT].question}</p>
+               <label for='s1' class='magpie-response-sentence' >${config.data[CT].option1}</label>
+               <input type='radio' name='answer' id='s1' value="${config.data[CT].option1}" />
+               <label for='s2' class='magpie-response-sentence' '>${config.data[CT].option2}</label>
+               <input type='radio' name='answer' id='s2' value="${config.data[CT].option2}" />
+               <label for='s3' class='magpie-response-sentence' '>${config.data[CT].option3}</label>
+               <input type='radio' name='answer' id='s3' value="${config.data[CT].option3}" />
+               <label for='s4' class='magpie-response-sentence' '>${config.data[CT].option4}</label>
+               <input type='radio' name='answer' id='s4' value="${config.data[CT].option4}" />
+               <label for='s5' class='magpie-response-sentence' '>${config.data[CT].option5}</label>
+               <input type='radio' name='answer' id='s5' value="${config.data[CT].option5}" />
+              </div>`);
+      const handle_click = function(e) {
+        let trial_data = {
+          trial_name: config.name,
+          trial_number: CT + 1,
+          response: e.target.value
+        }
+        magpie.trial_data.push(trial_data);
+        magpie.findNextView();
+      }
+      $('.magpie-response-sentence').on('click', handle_click)
+    }
+  }
+  return view;
+};
+
+const topic_customized = function (config){
+  const view = {
+    name: config.name,
+    CT: 0,
+    trials: config.trials,
+    render: function (CT, magpie) {
+      $('main').html(`<div class='magpie-view-answer-container'>
+          <strong class='magpie-response-rating-option magpie-view-text'>${config.data[CT].optionLeft}</strong>
+          <label for="1" class='magpie-response-rating'>-5</label>
+          <input type="radio" name="answer" id="1" value="1" />
+          <label for="2" class='magpie-response-rating'>-4</label>
+          <input type="radio" name="answer" id="2" value="2" />
+          <label for="3" class='magpie-response-rating'>-3</label>
+          <input type="radio" name="answer" id="3" value="3" />
+          <label for="4" class='magpie-response-rating'>-2</label>
+          <input type="radio" name="answer" id="4" value="4" />
+          <label for="5" class='magpie-response-rating'>-1</label>
+          <input type="radio" name="answer" id="5" value="5" />
+          <label for="6" class='magpie-response-rating'>0</label>
+          <input type="radio" name="answer" id="6" value="6" />
+          <label for="7" class='magpie-response-rating'>+1</label>
+          <input type="radio" name="answer" id="7" value="7" />
+          <label for="8" class='magpie-response-rating'>+2</label>
+          <input type="radio" name="answer" id="8" value="8" />
+          <label for="9" class='magpie-response-rating'>+3</label>
+          <input type="radio" name="answer" id="9" value="9" />
+          <label for="10" class='magpie-response-rating'>+4</label>
+          <input type="radio" name="answer" id="10" value="10" />
+          <label for="11" class='magpie-response-rating'>+5</label>
+          <input type="radio" name="answer" id="11" value="11" />
+          <strong class='magpie-response-rating-option magpie-view-text'>${config.data[CT].optionRight}</strong>
+      </div>`);
+      const handle_click = function(e) {
+        let trial_data = {
+          trial_name: config.name,
+          trial_number: CT + 1,
+          response: e.target.value
+        }
+        magpie.trial_data.push(trial_data);
+        magpie.findNextView();
+      }
+      $('.magpie-response-rating').on('click', handle_click)
+    }
+  }
+  return view;
+};

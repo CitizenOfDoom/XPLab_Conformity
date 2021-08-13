@@ -17,5 +17,42 @@ const trial_info = {
             option2: "rainbow",
             correct: "shiny"
         }
+    ],
+    sentence_choice_trials: [
+      {
+        question: "Which out of these topics do you care about the most?",
+        option1: 'Animal Products',
+        option2: 'Protesting',
+        option3: 'Vaccine against Covid-19',
+        option4: 'Abortion',
+        option5: 'Political Orientation'
+      }
+
     ]
+
 };
+
+const dropdown_choice_trials = [
+    {
+        //picture: 'path/to/picture_of_bread.jpg',
+        question: "Which out of these topics do you care about the most?",
+        option1: 'Animal Products',
+        option2: 'Protesting',
+        option3: 'Vaccine against Covid-19',
+        option4: 'Abortion',
+        option5: 'Political Orientation'
+    }
+
+];
+
+const sentence_choice_trials = [
+    {
+      question: "Which out of these topics do you care about the most?",
+      option1: 'Animal Products',
+      option2: 'Protesting',
+      option3: 'Vaccine against Covid-19',
+      option4: 'Abortion',
+      option5: 'Political Orientation'
+    }
+
+];
