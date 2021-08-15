@@ -129,14 +129,15 @@ const sentence_choice_2B = sentence_customized({
     }
   ],
   hook: {
-        after_response_enabled: check_response_cus
+
+        after_response_enabled: check_hook
     }
 
 });
 
 const rating_choice = topic_customized({
   name: "rating_choice",
-  trials: 2,
+  trials: 5,
   data: [
     {
       question: "People should not buy or eat animal products",
@@ -145,6 +146,21 @@ const rating_choice = topic_customized({
     },
     {
       question: "It is alright if political protesters use violence to enforce their demands",
+      optionLeft: 'Strongly Disagree',
+      optionRight: 'Strongly Agree',
+    },
+    {
+      question: "Everybody who is medically suited to receive a vaccination against Covid-19 should get such a vaccination",
+      optionLeft: 'Strongly Disagree',
+      optionRight: 'Strongly Agree',
+    },
+    {
+      question: "Abortion should be illegal",
+      optionLeft: 'Strongly Disagree',
+      optionRight: 'Strongly Agree',
+    },
+    {
+      question: "I am politically oriented towards the left",
       optionLeft: 'Strongly Disagree',
       optionRight: 'Strongly Agree',
     }

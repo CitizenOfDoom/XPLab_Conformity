@@ -28,18 +28,32 @@ const sentence_customized = function (config){
                <label for='s5' class='magpie-response-sentence' '>${config.data[CT].option5}</label>
                <input type='radio' name='answer' id='s5' value="${config.data[CT].option5}" />
               </div>`);
-      const handle_click = function(e) {
+    /*  const handle_click = function(e) {
         let trial_data = {
           trial_name: config.name,
           trial_number: CT + 1,
-          response: e.target.value
-        }
+          answer: config.e.target.value
+        };*/
+        $("input[name=answer]").on("change", function() {
+           let trial_data = {
+               trial_name: config.name,
+               trial_number: CT + 1,
+               response: $("input[name=answer]:checked").val(),
+
+           };
+        trial_data = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data);
         magpie.trial_data.push(trial_data);
         magpie.findNextView();
-      }
-      $('.magpie-response-sentence').on('click', handle_click)
+      });
+
+
+
+    //  const  handle_response_function = handle_response_functions.button_choice;
+
+    //  $('.magpie-response-sentence').on('click', handle_click)
     }
-  }
+  };
+  //console.log(trial_data.response)
   return view;
 };
 
@@ -49,42 +63,47 @@ const topic_customized = function (config){
     CT: 0,
     trials: config.trials,
     render: function (CT, magpie) {
+      console.log(magpie);
       $('main').html(`<div class='magpie-view-answer-container'>
+          <p class='magpie-view-question'>${config.data[CT].question}</p>
           <strong class='magpie-response-rating-option magpie-view-text'>${config.data[CT].optionLeft}</strong>
           <label for="1" class='magpie-response-rating'>-5</label>
-          <input type="radio" name="answer" id="1" value="1" />
+          <input type="radio" name="answer" id="1" value="-5" />
           <label for="2" class='magpie-response-rating'>-4</label>
-          <input type="radio" name="answer" id="2" value="2" />
+          <input type="radio" name="answer" id="2" value="-4" />
           <label for="3" class='magpie-response-rating'>-3</label>
-          <input type="radio" name="answer" id="3" value="3" />
+          <input type="radio" name="answer" id="3" value="-3" />
           <label for="4" class='magpie-response-rating'>-2</label>
-          <input type="radio" name="answer" id="4" value="4" />
+          <input type="radio" name="answer" id="4" value="-2" />
           <label for="5" class='magpie-response-rating'>-1</label>
-          <input type="radio" name="answer" id="5" value="5" />
+          <input type="radio" name="answer" id="5" value="-1" />
           <label for="6" class='magpie-response-rating'>0</label>
-          <input type="radio" name="answer" id="6" value="6" />
+          <input type="radio" name="answer" id="6" value="0" />
           <label for="7" class='magpie-response-rating'>+1</label>
-          <input type="radio" name="answer" id="7" value="7" />
+          <input type="radio" name="answer" id="7" value="+1" />
           <label for="8" class='magpie-response-rating'>+2</label>
-          <input type="radio" name="answer" id="8" value="8" />
+          <input type="radio" name="answer" id="8" value="+2" />
           <label for="9" class='magpie-response-rating'>+3</label>
-          <input type="radio" name="answer" id="9" value="9" />
+          <input type="radio" name="answer" id="9" value="+3" />
           <label for="10" class='magpie-response-rating'>+4</label>
-          <input type="radio" name="answer" id="10" value="10" />
+          <input type="radio" name="answer" id="10" value="+4" />
           <label for="11" class='magpie-response-rating'>+5</label>
-          <input type="radio" name="answer" id="11" value="11" />
+          <input type="radio" name="answer" id="11" value="+5" />
           <strong class='magpie-response-rating-option magpie-view-text'>${config.data[CT].optionRight}</strong>
       </div>`);
-      const handle_click = function(e) {
-        let trial_data = {
-          trial_name: config.name,
-          trial_number: CT + 1,
-          response: e.target.value
-        }
-        magpie.trial_data.push(trial_data);
-        magpie.findNextView();
-      }
-      $('.magpie-response-rating').on('click', handle_click)
+
+      $("input[name=answer]").on("change", function() {
+         let trial_data = {
+             trial_name: config.name,
+             trial_number: CT + 1,
+             response: $("input[name=answer]:checked").val(),
+
+         };
+      trial_data = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data);
+      magpie.trial_data.push(trial_data);
+      magpie.findNextView();
+    });
+    //  $('.magpie-response-rating').on('click', handle_click)
     }
   }
   return view;

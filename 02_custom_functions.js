@@ -57,33 +57,54 @@ check_response = function(data, next) {
         } else {
             alert('Sorry, this answer is incorrect :( The correct answer was ' + data.correct);
         }
+
         next();
     })
-}
+};
 
 
-check_response_cus = function(data, next) {
+const check_response_cus = function(data, next) {
+  console.log("yay")
     $('input[name=answer]').on('change', function(e) {
         if (e.target.value === data.option1) {
+            magpie.currentTrialCounter = 5;
+            magpie.currentTrialInViewCounter = 0;
+            console.log(magpie.currentTrialCounter);
             //ruf new view auf
         };
         if (e.target.value === data.option2) {
+          magpie.currentTrialCounter = 5;
+          magpie.currentTrialInViewCounter = 1;
+          console.log(magpie.currentTrialCounter);
 
         };
         if (e.target.value === data.option3) {
+          magpie.currentTrialCounter = 5;
+          magpie.currentTrialInViewCounter = 2;
+          console.log(magpie.currentTrialCounter);
 
         };
         if (e.target.value === data.option4) {
+          magpie.currentTrialCounter = 5;
+          magpie.currentTrialInViewCounter = 3;
 
         };
         if (e.target.value === data.option5) {
+          magpie.currentTrialCounter = 5;
+          magpie.currentTrialInViewCounter = 4;
 
         };
-
+        console.log(magpie.currentTrialCounter);
         next();
+      //  magpie.findNextView();
     })
 }
 
+check_hook = function(data, next){
+  alert('Your answer is correct! Yey!');
+  console.log("jesus fuck");
+  next();
+};
 // Declare your hooks here
 
 
