@@ -64,7 +64,7 @@ check_response = function(data, next) {
 
 
 const check_response_cus = function(data, next) {
-  console.log("yay")
+
     $('input[name=answer]').on('change', function(e) {
         if (e.target.value === data.option1) {
             magpie.currentTrialCounter = 5;
@@ -99,6 +99,8 @@ const check_response_cus = function(data, next) {
       //  magpie.findNextView();
     })
 }
+
+
 
 check_hook = function(data, next){
   alert('Your answer is correct! Yey!');

@@ -48,11 +48,16 @@ const sentence_customized = function (config){
 
 
 
+
     //  const  handle_response_function = handle_response_functions.button_choice;
 
     //  $('.magpie-response-sentence').on('click', handle_click)
     }
   };
+  hook: {
+
+        after_response_enabled: check_hook
+    }
   //console.log(trial_data.response)
   return view;
 };
