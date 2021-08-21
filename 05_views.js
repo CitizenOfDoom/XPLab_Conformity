@@ -23,27 +23,37 @@ const intro = magpieViews.view_generator("intro", {
   trials: 1,
   name: 'intro',
   // If you use JavaScripts Template String `I am a Template String`, you can use HTML <></> and javascript ${} inside
-  text: `This is a sample introduction view.
+  text: `Hello and Welcome to our experiment for the Experimental Psychology Lab 2021!
             <br />
             <br />
-            The introduction view welcomes the participant and gives general information
-            about the experiment. You are in the <strong>${coin}</strong> group.
+            We are reproducing an experiment about a moral dilemma and how you feel making that choice.
             <br />
             <br />
-            This is a minimal experiment with one forced choice view. It can serve as a starting point for programming your own experiment.`,
-  buttonText: 'begin the experiment'
+            This experiment should take about five minutes. Please make sure you aren't disturbed.
+            <br />
+            <br />
+            All data collected is purely for statistical purposes, anonymous, and will be deleted once the analysis of the experiment is complete.
+            <br />
+            <br />
+            We will first ask some demographic questions before the experiment actually starts.
+            <br />
+            <br />
+            Your participation is entirely voluntary and can be ended at any time. `,
+  buttonText: 'begin the experiment',
 });
 
 // For most tasks, you need instructions views
 const instructions = magpieViews.view_generator("instructions", {
   trials: 1,
   name: 'instructions',
-  title: 'General Instructions',
-  text: `This is a sample instructions view.
+  title: 'Experiment Instructions',
+  text: `Thank you for making it this far!
             <br />
             <br />
-            Tell your participants what they are to do here.`,
-  buttonText: 'go to trials'
+            In the following you will be introduced to the actual experiment. We will present you with a moral dilemma, and you need to decide a course of action.
+            <br />
+            After you've decided what you would do in such a situation, we will ask you how you feel about the choice you just made.`,
+  buttonText: 'proceed'
 });
 
 
@@ -51,15 +61,15 @@ const instructions = magpieViews.view_generator("instructions", {
 const post_test = magpieViews.view_generator("post_test", {
   trials: 1,
   name: 'post_test',
-  title: 'Additional information',
-  text: 'Answering the following questions is optional, but your answers will help us analyze our results.',
+  title: 'Demographic information',
+  text: 'Answering the following questions is optional, but your answers will greatly help us analyze our results.',
 
   // You can change much of what appears here, e.g., to present it in a different language, as follows:
   // buttonText: 'Weiter',
-   age_question: 'Alter',
-   gender_question: 'Geschlecht',
-   gender_male: 'männlich',
-   gender_female: 'weiblich',
+   age_question: 'Age',
+   gender_question: 'Gender',
+   gender_male: 'male',
+   gender_female: 'female',
    gender_other: 'divers',
   // edu_question: 'Höchster Bildungsabschluss',
   // edu_graduated_high_school: 'Abitur',
@@ -67,7 +77,7 @@ const post_test = magpieViews.view_generator("post_test", {
   // edu_higher_degree: 'Universitärer Abschluss',
   // languages_question: 'Muttersprache',
   // languages_more: '(in der Regel die Sprache, die Sie als Kind zu Hause gesprochen haben)',
-  // comments_question: 'Weitere Kommentare'
+   comments_question: 'Further Comments'
 });
 
 // The 'thanks' view is crucial; never delete it; it submits the results!
@@ -128,46 +138,72 @@ const sentence_choice_2B = sentence_customized({
       option5: 'Political Orientation'
     }
   ],
-  hook: {
-
-        after_response_enabled: check_hook
-    }
 
 });
 
 const rating_choice = topic_customized({
   name: "rating_choice",
-  trials: 5,
-  data: [
+  trials: 1, //brauchst nur ein trial
+  data: [ //nur eine liste, ein dict key-dependent
     {
-      question: "People should not buy or eat animal products",
+       //statt question, key-responses
       optionLeft: 'Strongly Disagree',
       optionRight: 'Strongly Agree',
-    },
-    {
-      question: "It is alright if political protesters use violence to enforce their demands",
-      optionLeft: 'Strongly Disagree',
-      optionRight: 'Strongly Agree',
-    },
-    {
-      question: "Everybody who is medically suited to receive a vaccination against Covid-19 should get such a vaccination",
-      optionLeft: 'Strongly Disagree',
-      optionRight: 'Strongly Agree',
-    },
-    {
-      question: "Abortion should be illegal",
-      optionLeft: 'Strongly Disagree',
-      optionRight: 'Strongly Agree',
-    },
-    {
-      question: "I am politically oriented towards the left",
-      optionLeft: 'Strongly Disagree',
-      optionRight: 'Strongly Agree',
+      s1: "People should not buy or eat animal products",
+      s2: "It is alright if political protesters use violence to enforce their demands", //etc
+      s3: "Everybody who is medically suited to receive a vaccination against Covid-19 should get such a vaccination",
+      s4: "Abortion should be illegal",
+      s5: "I am politically oriented towards the left",
     }
-
   ],
 
 });
+
+
+
+const understanding_choice = sentence_customized({
+  name: "understanding_choice",
+  trials: 1,
+  data: [
+    {
+      question: "To ensure you understood the assignment, please click on which of the following statements is true.",
+      option1: 'Participants chose which action they preferred.',
+      option2: 'Due to a computer error, participants were not allocated equally to imagine performing the different actions.',
+      option3: 'No data was saved during the experiment.',
+      option4: 'The participants completed the experiment with their eyes closed.',
+      option5: "I don't understand what is happening here."
+    }
+  ],
+
+});
+
+
+const moral_dilemma_2A = moral_dilemma({
+  name: "moral_dilemma_2A",
+  trials: 1,
+  data: moral_dilemma_data,
+
+});
+
+const emotions_fake = magpieViews.view_generator("rating_scale", {
+  // This will use all trials specified in `data`, you can user a smaller value (for testing), but not a larger value
+  trials: 1,
+  // name should be identical to the variable name
+  name: 'emotions_fake',
+  data: [
+  {
+    question: "How do you feel about your choice?",
+    optionLeft: 'happy',
+    optionRight: 'sad',
+  }],
+  // you can add custom functions at different stages through a view's life cycle
+  // hook: {
+  //     after_response_enabled: check_response
+  // }
+});
+
+
+
 
 
 

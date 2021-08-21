@@ -9,6 +9,8 @@
 // and has to call magpie.findNextView() eventually to proceed to the next view (or the next trial in this view),
 // if it is an trial view it also makes sense to call magpie.trial_data.push(trial_data) to save the trial information
 
+
+
 const sentence_customized = function (config){
   const view = {
     name: config.name,
@@ -39,10 +41,12 @@ const sentence_customized = function (config){
                trial_name: config.name,
                trial_number: CT + 1,
                response: $("input[name=answer]:checked").val(),
+               id: $("input[name=answer]:checked").attr('id'),
 
            };
         trial_data = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data);
         magpie.trial_data.push(trial_data);
+        //console.log("why aint ya pushin");
         magpie.findNextView();
       });
 
@@ -54,10 +58,6 @@ const sentence_customized = function (config){
     //  $('.magpie-response-sentence').on('click', handle_click)
     }
   };
-  hook: {
-
-        after_response_enabled: check_hook
-    }
   //console.log(trial_data.response)
   return view;
 };
@@ -69,8 +69,9 @@ const topic_customized = function (config){
     trials: config.trials,
     render: function (CT, magpie) {
       console.log(magpie);
+      console.log(magpie.trial_data[0].id);
       $('main').html(`<div class='magpie-view-answer-container'>
-          <p class='magpie-view-question'>${config.data[CT].question}</p>
+          <p class='magpie-view-question'>${config.data[CT][magpie.trial_data[0].id]}</p>
           <strong class='magpie-response-rating-option magpie-view-text'>${config.data[CT].optionLeft}</strong>
           <label for="1" class='magpie-response-rating'>-5</label>
           <input type="radio" name="answer" id="1" value="-5" />
@@ -111,5 +112,71 @@ const topic_customized = function (config){
     //  $('.magpie-response-rating').on('click', handle_click)
     }
   }
+  return view;
+};
+
+
+const moral_dilemma = function (config){
+  const view = {
+    name: config.name,
+    cointoss: config.cointoss,
+    CT: 0,
+    trials: config.trials,
+    render: function (CT, magpie) {
+      $('main').html(`
+              <div class='magpie-view'>
+                    <section class="magpie-text-container">
+                        <p class="magpie-view-text">${config.data[CT].text2}</p>
+                        <p class="magpie-view-text">${config.data[CT].text1}</p>
+
+
+                    </section>
+              </div>;
+              <div class='magpie-view-answer-container'>
+                <p class='magpie-view-question'>${config.data[CT].question}</p>
+                <strong class='magpie-response-rating-option magpie-view-text'>${config.data[CT].optionLeft}</strong>
+                <label for="1" class='magpie-response-rating'>---</label>
+                <input type="radio" name="answer" id="1" value="-3" />
+                <label for="2" class='magpie-response-rating'>--</label>
+                <input type="radio" name="answer" id="2" value="-2" />
+                <label for="3" class='magpie-response-rating'>-</label>
+                <input type="radio" name="answer" id="3" value="-1" />
+                <label for="4" class='magpie-response-rating'>+</label>
+                <input type="radio" name="answer" id="4" value="+1" />
+                <label for="5" class='magpie-response-rating'>++</label>
+                <input type="radio" name="answer" id="5" value="+2" />
+                <label for="6" class='magpie-response-rating'>+++</label>
+                <input type="radio" name="answer" id="6" value="+3" />
+                <strong class='magpie-response-rating-option magpie-view-text'>${config.data[CT].optionRight}</strong>
+              </div>`);
+    /*  const handle_click = function(e) {
+        let trial_data = {
+          trial_name: config.name,
+          trial_number: CT + 1,
+          answer: config.e.target.value
+        };*/
+        $("input[name=answer]").on("change", function() {
+           let trial_data = {
+               trial_name: config.name,
+               trial_number: CT + 1,
+               response: $("input[name=answer]:checked").val(),
+               id: $("input[name=answer]:checked").attr('id'),//i
+
+           };
+        trial_data = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data);
+        console.log(config.cointoss);
+        magpie.trial_data.push(trial_data);
+        magpie.findNextView();
+      });
+
+
+
+
+    //  const  handle_response_function = handle_response_functions.button_choice;
+
+    //  $('.magpie-response-sentence').on('click', handle_click)
+    }
+  };
+  //console.log(trial_data.response)
   return view;
 };

@@ -16,10 +16,13 @@ $("document").ready(function() {
         // You have to specify all views you want to use in this experiment and the order of them
         views_seq: [
             intro,
-            instructions,
+            post_test,
             sentence_choice_2B,
             rating_choice,
-            post_test,
+            instructions,
+            moral_dilemma_2A,
+            understanding_choice,
+            emotions_fake,
             thanks,
         ],
         // Here, you can specify all information for the deployment
@@ -29,8 +32,8 @@ $("document").ready(function() {
             // Possible deployment methods are:
             // "debug" and "directLink"
             // As well as "MTurk", "MTurkSandbox" and "Prolific"
-            deployMethod: "debug",
-            contact_email: "YOUREMAIL@wherelifeisgreat.you",
+            deployMethod: "directLink",
+            contact_email: "vjagusch@uni-osnabrueck.de",
             prolificURL: "https://app.prolific.ac/submissions/complete?cc=SAMPLE1234"
         },
         // Here, you can specify how the progress bar should look like
