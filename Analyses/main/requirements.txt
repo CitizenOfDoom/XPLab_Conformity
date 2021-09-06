@@ -1,0 +1,9 @@
+jupyter
+jupyterlab
+numpy
+pandas
+matplotlib
+statsmodels
+scipy
+pypiwin32
+seaborn
