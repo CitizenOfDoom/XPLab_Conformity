@@ -1,0 +1,33 @@
+submission_id,preference,Which out of these topics do you care about the most?,statement,bothShown,ingroupAgree,outgroupDisagree,ingroupNorm
+2729,3,Political Orientation,4,True,True,False,True
+2730,2,Vaccine against Covid-19,5,True,False,True,False
+2731,2,Vaccine against Covid-19,4,True,True,False,True
+2732,2,Vaccine against Covid-19,4,False,False,True,False
+2733,3,Abortion,-5,True,False,True,False
+2734,3,Vaccine against Covid-19,5,False,False,True,False
+2735,2,Vaccine against Covid-19,5,False,False,True,False
+2737,2,Political Orientation,3,True,False,True,False
+2738,1,Political Orientation,5,False,True,False,True
+2739,-2,Political Orientation,-5,False,False,True,True
+2740,1,Vaccine against Covid-19,5,False,True,False,True
+2741,3,Vaccine against Covid-19,5,True,True,False,True
+2742,3,Vaccine against Covid-19,5,True,True,False,True
+2746,3,Vaccine against Covid-19,5,True,True,False,True
+2747,3,Vaccine against Covid-19,3,False,True,False,True
+2748,1,Vaccine against Covid-19,4,True,False,True,False
+2752,2,Vaccine against Covid-19,5,False,True,False,True
+2755,2,Animal Products,-1,True,True,False,True
+2759,1,Vaccine against Covid-19,4,True,True,False,True
+2760,2,Political Orientation,3,True,False,True,False
+2761,3,Abortion,-5,False,True,False,True
+2762,3,Protesting,-5,False,True,False,True
+2764,2,Animal Products,5,True,False,True,False
+2765,-3,Political Orientation,2,True,True,False,False
+2767,3,Abortion,-5,True,True,False,True
+2768,-3,Political Orientation,-3,False,False,True,True
+2772,3,Political Orientation,5,True,False,True,False
+2774,2,Political Orientation,4,False,False,True,False
+2779,3,Animal Products,2,True,True,False,True
+2780,1,Abortion,-5,True,False,True,False
+2784,2,Political Orientation,3,True,False,True,False
+2786,-1,Animal Products,3,True,True,False,False
