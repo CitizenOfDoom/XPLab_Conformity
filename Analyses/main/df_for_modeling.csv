@@ -31,3 +31,31 @@ submission_id,preference,Which out of these topics do you care about the most?,s
 2780,1,Abortion,-5,True,False,True,False
 2784,2,Political Orientation,3,True,False,True,False
 2786,-1,Animal Products,3,True,True,False,False
+2788,2,Political Orientation,3,False,True,False,True
+2797,2,Political Orientation,3,False,False,True,False
+2799,2,Animal Products,4,True,False,True,False
+2801,-2,Abortion,-5,False,False,True,True
+2846,2,Animal Products,4,True,False,True,False
+3021,-2,Vaccine against Covid-19,4,True,True,False,False
+3022,2,Abortion,-5,True,True,False,True
+3023,2,Abortion,-5,True,True,False,True
+3024,1,Vaccine against Covid-19,5,True,True,False,True
+3025,-2,Vaccine against Covid-19,5,True,False,True,True
+3039,-1,Abortion,-5,False,False,True,True
+3042,2,Vaccine against Covid-19,4,True,False,True,False
+3044,1,Political Orientation,5,False,True,False,True
+3056,3,Animal Products,5,False,True,False,True
+3057,-1,Vaccine against Covid-19,4,True,False,True,True
+3068,1,Vaccine against Covid-19,5,False,False,True,False
+3069,3,Vaccine against Covid-19,5,False,False,True,False
+3072,3,Protesting,2,False,False,True,False
+3094,3,Animal Products,1,True,False,True,False
+3106,-1,Abortion,-5,False,True,False,False
+3111,2,Vaccine against Covid-19,4,True,False,True,False
+3198,2,Political Orientation,4,False,False,True,False
+3199,2,Political Orientation,4,True,True,False,True
+3200,1,Political Orientation,3,False,False,True,False
+3201,3,Animal Products,-3,True,False,True,False
+3215,-1,Vaccine against Covid-19,4,False,False,True,True
+3224,2,Vaccine against Covid-19,4,True,True,False,True
+3227,3,Vaccine against Covid-19,5,True,False,True,False
