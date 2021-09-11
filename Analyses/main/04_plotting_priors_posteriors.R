@@ -77,6 +77,6 @@ prior_posterior_plots <- lapply(1:4, function(x){
 
 
 for(i in 1:4){
-  ggsave(file=paste("prior_posterior_plot_", i, ".png", sep=""), plot=prior_posterior_plots[[i]], width=18, height=10, units="cm", dpi=600)
+  ggsave(file=paste("05_prior_posterior_plot_", i, ".png", sep=""), plot=prior_posterior_plots[[i]], width=18, height=10, units="cm", dpi=600)
 }
   

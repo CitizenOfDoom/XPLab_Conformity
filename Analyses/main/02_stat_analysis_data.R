@@ -25,7 +25,7 @@ theme_set(theme_bw(18)+
                   text=element_text(family="serif")))
 
 #Read in data
-full_data <- read_csv(here("XPLab_Conformity","Analyses","main","df_for_modeling.csv"))
+full_data <- read_csv(here("XPLab_Conformity","Analyses","main","03_clean_data.csv"))
 
 
 #Create readable labels for plotting.
@@ -81,6 +81,6 @@ bf(marg_lik_herding_all,marg_lik_SCT_all)
 
 
 #Create prior-posterior plots-------
-#source("C:/Users/sarah/Documents/XPLab_Conformity/Analyses/main/plot_priors_posteriors.R")
+source("C:/Users/sarah/Documents/XPLab_Conformity/Analyses/main/04_plotting_priors_posteriors.R")
 
 
