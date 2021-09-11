@@ -35,7 +35,7 @@ function moral_dilemma_trial(view_cond) {
   if (view_cond == 1) {
     view.text1 = " <br/><br/>Approximately 60% of the other participants who agree with you on your chosen issue chose to let the robber go."
   } else if (view_cond == 2) {
-    view.text1 = " <br/><br/>60% of the other participants who agree with you on your chosen issue chose to report the robber."
+    view.text1 = " <br/><br/>Approximately 60% of the other participants who agree with you on your chosen issue chose to report the robber."
   } else if (view_cond == 3) {
     view.text1 = " <br/><br/>Approximately 60% of the other participants who agree with you on  your chosen issue chose to let the robber go. <br/><br/> Approximately 85% of participants in a previous study who disagreed with you on  your chosen issue chose to report the robber."
   } else {
