@@ -10,6 +10,8 @@
 // if it is an trial view it also makes sense to call magpie.trial_data.push(trial_data) to save the trial information
 
 
+//customized view based on the sentence choice template which allows the choice between more than two options
+//used both for the topic selection view and for the understanding check later on during the experiment
 
 const sentence_customized = function (config){
   const view = {
@@ -30,12 +32,7 @@ const sentence_customized = function (config){
                <label for='s5' class='magpie-response-sentence' '>${config.data[CT].option5}</label>
                <input type='radio' name='answer' id='s5' value="${config.data[CT].option5}" />
               </div>`);
-    /*  const handle_click = function(e) {
-        let trial_data = {
-          trial_name: config.name,
-          trial_number: CT + 1,
-          answer: config.e.target.value
-        };*/
+    
         $("input[name=answer]").on("change", function() {
            let trial_data = {
                trial_name: config.name,
@@ -46,22 +43,18 @@ const sentence_customized = function (config){
            };
         trial_data = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data);
         magpie.trial_data.push(trial_data);
-        //console.log("why aint ya pushin");
         magpie.findNextView();
       });
 
-
-
-
-    //  const  handle_response_function = handle_response_functions.button_choice;
-
-    //  $('.magpie-response-sentence').on('click', handle_click)
     }
   };
-  //console.log(trial_data.response)
+ 
   return view;
 };
 
+
+//custom view for the part of the experiment where the user rates a statement about their previously chosen topic 
+//based on the rating scale trial template, modified to include more choice options
 const topic_customized = function (config){
   const view = {
     name: config.name,
@@ -109,13 +102,14 @@ const topic_customized = function (config){
       magpie.trial_data.push(trial_data);
       magpie.findNextView();
     });
-    //  $('.magpie-response-rating').on('click', handle_click)
+   
     }
   }
   return view;
 };
 
-
+//modified version of the rating scale view, used for the moral dilemma portion of the experiment
+//the view does not only include the rating scale but also varying text depending on one of the four sentence conditions defined in 04_trials. 
 const moral_dilemma = function (config){
   const view = {
     name: config.name,
@@ -149,12 +143,7 @@ const moral_dilemma = function (config){
                 <input type="radio" name="answer" id="6" value="+3" />
                 <strong class='magpie-response-rating-option magpie-view-text'>${config.data[CT].optionRight}</strong>
               </div>`);
-    /*  const handle_click = function(e) {
-        let trial_data = {
-          trial_name: config.name,
-          trial_number: CT + 1,
-          answer: config.e.target.value
-        };*/
+    
         $("input[name=answer]").on("change", function() {
            let trial_data = {
                trial_name: config.name,
@@ -170,13 +159,9 @@ const moral_dilemma = function (config){
       });
 
 
-
-
-    //  const  handle_response_function = handle_response_functions.button_choice;
-
-    //  $('.magpie-response-sentence').on('click', handle_click)
+  
     }
   };
-  //console.log(trial_data.response)
+ 
   return view;
 };
