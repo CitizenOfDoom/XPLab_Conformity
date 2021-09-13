@@ -111,11 +111,11 @@ const thanks = magpieViews.view_generator("thanks", {
 * https://magpie-ea.github.io/magpie-docs/01_designing_experiments/01_template_views/#trial-views
 */
 
-
+//view data for the topic choice, trial-data included here for ease of overview, as there is only one
 const sentence_choice_2B = sentence_customized({
   name: "sentence_customized",
   trials: 1,
-  data: trial_info.sentence_choice_trials,/*[
+  data: [
     {
       question: "Which out of these topics do you care about the most?",
       option1: 'Animal Products',
@@ -124,10 +124,11 @@ const sentence_choice_2B = sentence_customized({
       option4: 'Abortion',
       option5: 'Political Orientation'
     }
-  ],*/
+  ],
 
 });
 
+//view data for the rating of a statement of a chosen topic, trial-data included here for ease of overview, as there is only one
 const rating_choice = topic_customized({
   name: "rating_choice",
   trials: 1, 
@@ -146,7 +147,7 @@ const rating_choice = topic_customized({
 });
 
 
-
+//view data for the understanding check, trial-data included here for ease of overview, as there is only one
 const understanding_choice = sentence_customized({
   name: "understanding_choice",
   trials: 1,
@@ -163,7 +164,7 @@ const understanding_choice = sentence_customized({
 
 });
 
-
+//view data for the moral dilemma, trial-data NOT included here for ease of overview, as the code got out of hand. please refer to 04_trials
 const moral_dilemma_2A = moral_dilemma({
   name: "moral_dilemma_2A",
   trials: 1,
@@ -171,6 +172,7 @@ const moral_dilemma_2A = moral_dilemma({
 
 });
 
+//view data for the emotions rating, trial-data included here for ease of overview, as there is only one
 const emotions_fake = magpieViews.view_generator("rating_scale", {
   trials: 1,
   name: 'emotions_fake',
