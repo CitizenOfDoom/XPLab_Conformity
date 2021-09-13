@@ -18,6 +18,7 @@ const sentence_customized = function (config){
     name: config.name,
     CT: 0,
     trials: config.trials,
+   
     render: function (CT, magpie) {
       $('main').html(`<div class='magpie-view-answer-container'>
                <p class='magpie-view-question'>${config.data[CT].question}</p>
@@ -44,6 +45,7 @@ const sentence_customized = function (config){
         trial_data = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data);
         magpie.trial_data.push(trial_data);
         magpie.findNextView();
+           console.log("pray tell fryer lawrence where is the data coming from");
       });
 
     }
