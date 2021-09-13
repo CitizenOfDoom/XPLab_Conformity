@@ -1,8 +1,8 @@
 // In this file you can specify the trial data for your experiment
 
-
+//trial information for the first sentence choice view, where participants pick a topic they are the most interested in
 const trial_info = {
-    sentence_choice_trials: [
+    /*sentence_choice_trials: [
       {
         question: "Which out of these topics do you care about the most?",
         option1: 'Animal Products',
@@ -12,13 +12,16 @@ const trial_info = {
         option5: 'Political Orientation'
       }
 
-    ]
-
+    ],
+    
+*/
 };
 
+//used to randomly generate which experiment condition the participant is going to experience
 const view_cond = _.sample([1,2,3,4]);
 
-
+//the data for the moral dilemma view
+//includes both the set text for the dilemma all participants will see and the variations, chosen at random as defined above
 const moral_dilemma_data = [
   moral_dilemma_trial(view_cond)
 ];
@@ -47,20 +50,8 @@ return view;
 
 
 
-const dropdown_choice_trials = [
-    {
-        //picture: 'path/to/picture_of_bread.jpg',
-        question: "Which out of these topics do you care about the most?",
-        option1: 'Animal Products',
-        option2: 'Protesting',
-        option3: 'Vaccine against Covid-19',
-        option4: 'Abortion',
-        option5: 'Political Orientation'
-    }
 
-];
-
-const sentence_choice_trials = [
+/*const sentence_choice_trials = [
     {
       question: "Which out of these topics do you care about the most?",
       option1: 'Animal Products',
@@ -70,4 +61,4 @@ const sentence_choice_trials = [
       option5: 'Political Orientation'
     }
 
-];
+];*/
