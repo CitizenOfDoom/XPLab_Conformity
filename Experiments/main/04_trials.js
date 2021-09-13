@@ -2,7 +2,7 @@
 
 //trial information for the first sentence choice view, where participants pick a topic they are the most interested in
 const trial_info = {
-    /*sentence_choice_trials: [
+    sentence_choice_trials: [
       {
         question: "Which out of these topics do you care about the most?",
         option1: 'Animal Products',
@@ -14,7 +14,7 @@ const trial_info = {
 
     ],
     
-*/
+
 };
 
 //used to randomly generate which experiment condition the participant is going to experience
@@ -49,16 +49,3 @@ return view;
 };
 
 
-
-
-/*const sentence_choice_trials = [
-    {
-      question: "Which out of these topics do you care about the most?",
-      option1: 'Animal Products',
-      option2: 'Protesting',
-      option3: 'Vaccine against Covid-19',
-      option4: 'Abortion',
-      option5: 'Political Orientation'
-    }
-
-];*/
