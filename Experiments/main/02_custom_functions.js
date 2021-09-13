@@ -62,7 +62,7 @@ check_response = function(data, next) {
     })
 };
 
-
+//function that ensures that only the question (ie the trial) associated with the previously chosen topic is displayed
 const check_response_cus = function(data, next) {
 
     $('input[name=answer]').on('change', function(e) {
@@ -101,10 +101,9 @@ const check_response_cus = function(data, next) {
 }
 
 
-
+// basic procedure check function used for debugging purposes
 check_hook = function(data, next){
   alert('Your answer is correct! Yey!');
-  console.log("jesus fuck");
   next();
 };
 // Declare your hooks here
