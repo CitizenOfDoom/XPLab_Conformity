@@ -115,7 +115,7 @@ const thanks = magpieViews.view_generator("thanks", {
 const sentence_choice_2B = sentence_customized({
   name: "sentence_customized",
   trials: 1,
-  data: [
+  data: trial_info.sentence_choice_trials,/*[
     {
       question: "Which out of these topics do you care about the most?",
       option1: 'Animal Products',
@@ -124,7 +124,7 @@ const sentence_choice_2B = sentence_customized({
       option4: 'Abortion',
       option5: 'Political Orientation'
     }
-  ],
+  ],*/
 
 });
 
