@@ -130,10 +130,9 @@ const sentence_choice_2B = sentence_customized({
 
 const rating_choice = topic_customized({
   name: "rating_choice",
-  trials: 1, //brauchst nur ein trial
-  data: [ //nur eine liste, ein dict key-dependent
+  trials: 1, 
+  data: [ 
     {
-       //statt question, key-responses
       optionLeft: 'Strongly Disagree',
       optionRight: 'Strongly Agree',
       s1: "People should not buy or eat animal products",
@@ -173,9 +172,7 @@ const moral_dilemma_2A = moral_dilemma({
 });
 
 const emotions_fake = magpieViews.view_generator("rating_scale", {
-  // This will use all trials specified in `data`, you can user a smaller value (for testing), but not a larger value
   trials: 1,
-  // name should be identical to the variable name
   name: 'emotions_fake',
   data: [
   {
@@ -183,10 +180,6 @@ const emotions_fake = magpieViews.view_generator("rating_scale", {
     optionLeft: 'happy',
     optionRight: 'sad',
   }],
-  // you can add custom functions at different stages through a view's life cycle
-  // hook: {
-  //     after_response_enabled: check_response
-  // }
 });
 
 
